@@ -155,7 +155,7 @@ public class UserServiceUTest {
     @Test
     void givenHappyPath_whenRegister() {
 
-        // Given
+      
         RegisterRequest registerRequest = RegisterRequest.builder()
                 .username("svetlana")
                 .password("testtest123")
