@@ -28,10 +28,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    // hasAnyRole - проверяваме за една от следните роли
-    // hasRole - проверяваме за една конкретна роля
-    // hasAuthority - проверяваме за един permission
-    // hasAnyAuthority - проверяваме за един от следните permissions
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
     public ModelAndView getAllUsers(@AuthenticationPrincipal AuthenticationMetadata authenticationMetadata) {
@@ -45,7 +41,7 @@ public class UserController {
         return modelAndView;
     }
 
-    // Endpoint:  '/users/{placeholder}/profile'- unique (just single in my app)
+
     @GetMapping("/{id}/profile")
     public ModelAndView getProfileMenu(@PathVariable UUID id) {
 
@@ -76,7 +72,7 @@ public class UserController {
         return new ModelAndView("redirect:/home");
     }
 
-    @PutMapping("/{id}/status") // PUT /users/{id}/status
+    @PutMapping("/{id}/status") 
     public String switchUserStatus(@PathVariable UUID id) {
 
         userService.switchStatus(id);
@@ -84,7 +80,7 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @PutMapping("/{id}/role") // PUT /users/{id}/role
+    @PutMapping("/{id}/role") 
     public String switchUserRole(@PathVariable UUID id) {
 
         userService.switchRole(id);
