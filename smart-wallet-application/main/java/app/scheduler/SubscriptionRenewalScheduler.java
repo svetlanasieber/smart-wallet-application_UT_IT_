@@ -19,7 +19,7 @@ import java.util.UUID;
 @Slf4j
 @Component
 public class SubscriptionRenewalScheduler {
-
+ 
     private final SubscriptionService subscriptionService;
 
     @Autowired
